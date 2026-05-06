@@ -6,7 +6,10 @@ load_dotenv()
 
 MONGO_URI = os.getenv("MONGO_URI", "mongodb://localhost:27017/workhive")
 client = MongoClient(MONGO_URI)
-db = client.get_database() # Uses the database specified in URI
+try:
+    db = client.get_database() # Uses the database specified in URI if present
+except Exception:
+    db = client['workhive'] # Fallback to 'workhive' database if no default is provided in URI
 
 users_collection = db['users']
 projects_collection = db.projects
