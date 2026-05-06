@@ -71,4 +71,28 @@ npm run dev
 The React app will be available at `http://localhost:5173`. Open it in your browser, sign up, and start exploring!
 
 ---
+
+## ☁️ Deployment (Railway)
+
+To deploy WorkHive to Railway as two separate services (Frontend & Backend):
+
+### 1. Backend Service
+1. Create a new service in Railway from your GitHub repo.
+2. Set the **Root Directory** to `backend`.
+3. Railway will detect the `Procfile` and use it.
+4. Add the following **Variables**:
+   - `MONGO_URI`: Your MongoDB connection string.
+   - `JWT_SECRET`: A secure random string for signing tokens.
+   - `GROQ_API_KEY`: Your Groq API key for HiveBot.
+   - `PORT`: 5000 (Railway usually provides this automatically).
+
+### 2. Frontend Service
+1. Create another service in Railway from the same GitHub repo.
+2. Set the **Root Directory** to `frontend`.
+3. Set the **Build Command** to `npm run build`.
+4. Set the **Output Directory** to `dist`.
+5. Add the following **Variable**:
+   - `VITE_API_URL`: The URL of your **Backend Service** + `/api` (e.g., `https://your-backend.up.railway.app/api`).
+
+---
 *Built with ❤️ by ShaliniBiswal-2512*
