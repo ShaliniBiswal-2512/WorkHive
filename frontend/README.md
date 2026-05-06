@@ -1,16 +1,29 @@
-# React + Vite
+# WorkHive Frontend 🎨
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is the frontend portion of my **WorkHive** application. 
 
-Currently, two official plugins are available:
+I built this interface focusing heavily on a clean, modern, "glassmorphism" aesthetic that feels premium and highly responsive.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Technologies I Used Here:
+- **React.js** (Bootstrapped with Vite for extremely fast HMR)
+- **Tailwind CSS** (For rapid, highly customizable styling and theme management)
+- **Framer Motion** (For smooth page transitions and micro-animations)
+- **Socket.io-client** (To connect to the Flask backend for real-time chat)
+- **@hello-pangea/dnd** (For the smooth, performant drag-and-drop Kanban board)
+- **Lucide React** (For beautiful, consistent SVG icons)
 
-## React Compiler
+## Structure
+- `src/components/`: Reusable UI elements (like the Layout sidebar, ChatbotWidget).
+- `src/pages/`: Main views (Dashboard, Projects, TaskBoard, Login, Signup).
+- `src/context/`: Contains the `AuthContext` to manage user state and JWT tokens globally.
+- `src/assets/`: Images and SVGs.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Development
 
-## Expanding the ESLint configuration
+To run the frontend locally:
+```bash
+npm install
+npm run dev
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Remember to make sure the Flask backend is running on port 5000 so the API calls and WebSockets connect successfully!

@@ -1,68 +1,74 @@
 # WorkHive 🐝
 
-**WorkHive** - "Where Teams Get Things Done"
+Hello there! Welcome to **WorkHive** — a project I built to help teams organize, collaborate, and get things done efficiently. 
 
-WorkHive is a collaborative productivity platform—designed like a hive where teams work efficiently together. It's a modern, premium SaaS task management application featuring role-based access control, project organization, and a smooth drag-and-drop Kanban board for tasks.
+I designed WorkHive to be a premium, AI-powered workspace collaboration platform. It combines traditional task management (like a drag-and-drop Kanban board) with modern features like real-time team chat and AI-powered productivity tools. 
 
-## 🧱 Tech Stack
-* **Frontend**: React (Vite), Tailwind CSS, Framer Motion, @hello-pangea/dnd, Lucide Icons
-* **Backend**: Python Flask (REST API)
-* **Database**: MongoDB (via PyMongo)
-* **Authentication**: JWT & bcrypt
+## ✨ Key Features I Built
 
-## 🚀 Setup Instructions
+- **Kanban Task Board**: A fully interactive drag-and-drop board to manage tasks across different columns (To Do, In Progress, Done).
+- **Real-Time Team Chat**: I used `Socket.IO` so you can instantly message your team, edit messages, delete them, and share files within specific project workspaces.
+- **AI "Catch Me Up" & Task Generation**: I integrated the **Groq API** to analyze your workspace, auto-generate foundational tasks for new projects, and even polish your chat messages using AI.
+- **Live Notifications**: Real-time alerts for when you receive a message or when project activity happens.
+- **Customizable UI Themes**: I implemented a sleek, glassmorphism UI with dynamic dark-mode themes (Pink, Green, Blue, Yellow) that save to local storage.
+- **Secure Authentication**: Built from scratch using JWT (JSON Web Tokens) and bcrypt for password hashing.
+
+## 🧱 Tech Stack Used
+
+I chose a modern, full-stack approach for this project:
+
+* **Frontend**: React.js (Vite), Tailwind CSS for styling, Framer Motion for animations, `@hello-pangea/dnd` for drag-and-drop, and Axios.
+* **Backend**: Python Flask, Flask-SocketIO (for WebSockets), and Flask-CORS.
+* **Database**: MongoDB (using PyMongo).
+* **AI Integration**: Groq API (LLaMA 3).
+
+---
+
+## 🚀 How to Run It Locally
+
+If you want to run my project on your own machine, here is how to set it up!
 
 ### Prerequisites
+Make sure you have installed:
 - Node.js (v18+)
 - Python (v3.9+)
-- MongoDB (running locally on `mongodb://localhost:27017` or a cloud Atlas instance)
+- MongoDB (running locally on `mongodb://localhost:27017` or via Atlas)
 
-### 1. Backend Setup
-Navigate to the `backend` folder and set up the virtual environment:
+### 1. Set up the Backend
+Open a terminal and go into the `backend` folder:
 ```bash
 cd backend
+
+# Create and activate a virtual environment
 python -m venv venv
+# On Windows: venv\Scripts\activate
+# On Mac/Linux: source venv/bin/activate
 
-# Activate virtual environment
-# On Windows:
-venv\Scripts\activate
-# On Mac/Linux:
-source venv/bin/activate
-
-# Install dependencies
+# Install the dependencies I used
 pip install -r requirements.txt
-# (or if requirements.txt isn't present: pip install flask flask-cors pymongo bcrypt pyjwt python-dotenv)
 
-# Ensure MongoDB is running, then start the server
+# Create a .env file with these variables:
+# MONGO_URI=mongodb://localhost:27017/workhive
+# JWT_SECRET=your_super_secret_key
+# GROQ_API_KEY=your_groq_api_key
+
+# Run the Flask Server
 python app.py
 ```
-The Flask API will run on `http://localhost:5000`.
+The API and Socket server will start on `http://localhost:5000`.
 
-### 2. Frontend Setup
-Open a new terminal and navigate to the `frontend` folder:
+### 2. Set up the Frontend
+Open a new terminal and go into the `frontend` folder:
 ```bash
 cd frontend
+
+# Install all the npm packages
 npm install
 
 # Start the Vite development server
 npm run dev
 ```
-The React app will be available at `http://localhost:5173`.
+The React app will be available at `http://localhost:5173`. Open it in your browser, sign up, and start exploring!
 
-## ⚙️ Environment Variables
-In the `backend/.env` file:
-```env
-MONGO_URI=mongodb://localhost:27017/workhive
-JWT_SECRET=super_secret_workhive_key_123!
-PORT=5000
-```
-
-## 🎥 Demo Flow
-1. **Signup**: Register a new account.
-2. **Login**: Log in to access the application.
-3. **Dashboard**: View your overall statistics (initially zero).
-4. **Projects**: Navigate to the Projects page and click "New Project" to create a workspace.
-5. **Task Board**: Open your project to view the Kanban board.
-6. **Create Task**: Add new tasks with titles, descriptions, priorities, and due dates.
-7. **Drag & Drop**: Move tasks between 'To Do', 'In Progress', and 'Done' columns.
-8. **Dashboard Updates**: Return to the Dashboard to see your updated statistics!
+---
+*Built with ❤️ by ShaliniBiswal-2512*
