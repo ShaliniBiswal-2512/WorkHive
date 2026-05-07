@@ -1,98 +1,247 @@
-# WorkHive 🐝
+# 🚀 WorkHive
 
-Hello there! Welcome to **WorkHive** — a project I built to help teams organize, collaborate, and get things done efficiently. 
+WorkHive is a modern AI-powered team collaboration and workspace management platform developed to simplify project coordination, improve team communication, and enhance overall productivity.
 
-I designed WorkHive to be a premium, AI-powered workspace collaboration platform. It combines traditional task management (like a drag-and-drop Kanban board) with modern features like real-time team chat and AI-powered productivity tools. 
-
-## ✨ Key Features I Built
-
-- **Kanban Task Board**: A fully interactive drag-and-drop board to manage tasks across different columns (To Do, In Progress, Done).
-- **Real-Time Team Chat**: I used `Socket.IO` so you can instantly message your team, edit messages, delete them, and share files within specific project workspaces.
-- **AI "Catch Me Up" & Task Generation**: I integrated the **Groq API** to analyze your workspace, auto-generate foundational tasks for new projects, and even polish your chat messages using AI.
-- **Live Notifications**: Real-time alerts for when you receive a message or when project activity happens.
-- **Customizable UI Themes**: I implemented a sleek, glassmorphism UI with dynamic dark-mode themes (Pink, Green, Blue, Yellow) that save to local storage.
-- **Secure Authentication**: Built from scratch using JWT (JSON Web Tokens) and bcrypt for password hashing.
-
-## 🧱 Tech Stack Used
-
-I chose a modern, full-stack approach for this project:
-
-* **Frontend**: React.js (Vite), Tailwind CSS for styling, Framer Motion for animations, `@hello-pangea/dnd` for drag-and-drop, and Axios.
-* **Backend**: Python Flask, Flask-SocketIO (for WebSockets), and Flask-CORS.
-* **Database**: MongoDB (using PyMongo).
-* **AI Integration**: Groq API (LLaMA 3).
+The platform combines intelligent task management, real-time collaboration, and AI-assisted workflow automation within a unified and intuitive interface. WorkHive is designed to support teams in organizing projects efficiently while maintaining seamless communication across workspaces.
 
 ---
 
-## 🚀 How to Run It Locally
+## 🌐 Live Application
 
-If you want to run my project on your own machine, here is how to set it up!
+🔗 [Access WorkHive](https://workhive.up.railway.app/login)
 
-### Prerequisites
-Make sure you have installed:
-- Node.js (v18+)
-- Python (v3.9+)
-- MongoDB (running locally on `mongodb://localhost:27017` or via Atlas)
+---
 
-### 1. Set up the Backend
-Open a terminal and go into the `backend` folder:
+# 📖 Overview
+
+WorkHive provides a collaborative digital workspace where teams can create projects, manage tasks, communicate instantly, and utilize AI-powered productivity features.
+
+The application focuses on delivering a clean user experience with responsive design, real-time synchronization, and scalable architecture suitable for modern collaborative environments.
+
+---
+
+# ✨ Core Features
+
+## 📋 Intelligent Task Management
+
+* Interactive drag-and-drop Kanban board
+* Task organization across multiple workflow stages
+* Real-time task updates and synchronization
+* Workspace-specific task management
+* Improved project visibility and collaboration
+
+### Workflow Stages
+
+* To Do
+* In Progress
+* Completed
+
+---
+
+## 💬 Real-Time Team Communication
+
+* Real-time messaging using WebSockets
+* Workspace-based team conversations
+* Instant message delivery and updates
+* Message editing and deletion support
+* File sharing capabilities within workspaces
+
+The communication system enables seamless collaboration between team members without requiring page refreshes or external communication tools.
+
+---
+
+## 🤖 AI-Powered Productivity Tools
+
+WorkHive integrates the Groq API powered by LLaMA 3 to provide intelligent productivity assistance.
+
+### AI Features
+
+* Automatic task generation for new projects
+* AI-generated workspace summaries
+* Smart text enhancement for professional communication
+* Context-aware productivity assistance
+
+These features help reduce manual effort and improve workflow efficiency.
+
+---
+
+## 🔔 Real-Time Notifications
+
+* Instant activity notifications
+* Live chat alerts
+* Workspace activity tracking
+* Improved team awareness and responsiveness
+
+---
+
+## 🎨 Modern User Interface
+
+The application is designed with a modern glassmorphism-inspired interface focused on usability and accessibility.
+
+### UI Highlights
+
+* Fully responsive design
+* Smooth animations and transitions
+* Multiple customizable themes
+* Dark mode support
+* Clean and intuitive workspace layout
+
+---
+
+## 🔐 Secure Authentication System
+
+Security and user authentication are implemented using industry-standard practices.
+
+### Authentication Features
+
+* JWT-based authentication
+* Secure password hashing using bcrypt
+* Protected routes and authenticated sessions
+* Secure user management system
+
+---
+
+# 🛠️ Technology Stack
+
+## Frontend Technologies
+
+* React.js (Vite)
+* Tailwind CSS
+* Framer Motion
+* Axios
+* @hello-pangea/dnd
+
+---
+
+## Backend Technologies
+
+* Python Flask
+* Flask-SocketIO
+* Flask-CORS
+
+---
+
+## Database
+
+* MongoDB
+
+---
+
+## AI Integration
+
+* Groq API (LLaMA 3)
+
+---
+
+# ⚙️ Local Development Setup
+
+## 📌 Prerequisites
+
+Ensure the following tools are installed on your system before running the project locally:
+
+* Node.js (v18 or later)
+* Python (v3.9 or later)
+* MongoDB
+
+---
+
+# 1️⃣ Backend Setup
+
+Navigate to the backend directory:
+
 ```bash
 cd backend
+```
 
-# Create and activate a virtual environment
+Create a virtual environment:
+
+```bash
 python -m venv venv
-# On Windows: venv\Scripts\activate
-# On Mac/Linux: source venv/bin/activate
+```
 
-# Install the dependencies I used
+Activate the virtual environment:
+
+### Windows
+
+```bash
+venv\Scripts\activate
+```
+
+### macOS / Linux
+
+```bash
+source venv/bin/activate
+```
+
+Install required dependencies:
+
+```bash
 pip install -r requirements.txt
+```
 
-# Create a .env file with these variables:
-# MONGO_URI=mongodb://localhost:27017/workhive
-# JWT_SECRET=your_super_secret_key
-# GROQ_API_KEY=your_groq_api_key
+Create a `.env` file inside the backend directory and add the following variables:
 
-# Run the Flask Server
+```env
+MONGO_URI=your_mongodb_uri
+JWT_SECRET=your_secret_key
+GROQ_API_KEY=your_groq_api_key
+```
+
+Run the backend server:
+
+```bash
 python app.py
 ```
-The API and Socket server will start on `http://localhost:5000`.
 
-### 2. Set up the Frontend
-Open a new terminal and go into the `frontend` folder:
+Backend server runs on:
+
+```bash
+http://localhost:5000
+```
+
+---
+
+# 2️⃣ Frontend Setup
+
+Navigate to the frontend directory:
+
 ```bash
 cd frontend
+```
 
-# Install all the npm packages
+Install frontend dependencies:
+
+```bash
 npm install
+```
 
-# Start the Vite development server
+Start the development server:
+
+```bash
 npm run dev
 ```
-The React app will be available at `http://localhost:5173`. Open it in your browser, sign up, and start exploring!
+
+Frontend application runs on:
+
+```bash
+http://localhost:5173
+```
 
 ---
 
-## ☁️ Deployment (Railway)
+# 📂 Project Structure
 
-To deploy WorkHive to Railway as two separate services (Frontend & Backend):
-
-### 1. Backend Service
-1. Create a new service in Railway from your GitHub repo.
-2. Set the **Root Directory** to `backend`.
-3. Railway will detect the `Procfile` and use it.
-4. Add the following **Variables**:
-   - `MONGO_URI`: Your MongoDB connection string.
-   - `JWT_SECRET`: A secure random string for signing tokens.
-   - `GROQ_API_KEY`: Your Groq API key for HiveBot.
-   - `PORT`: 5000 (Railway usually provides this automatically).
-
-### 2. Frontend Service
-1. Create another service in Railway from the same GitHub repo.
-2. Set the **Root Directory** to `frontend`.
-3. Set the **Build Command** to `npm run build`.
-4. Set the **Output Directory** to `dist`.
-5. Add the following **Variable**:
-   - `VITE_API_URL`: The URL of your **Backend Service** + `/api` (e.g., `https://your-backend.up.railway.app/api`).
+```bash
+WorkHive/
+│
+├── frontend/          # React Frontend
+├── backend/           # Flask Backend
+├── README.md
+└── requirements.txt
+```
 
 ---
-*Built with ❤️ by ShaliniBiswal-2512*
+
+# 👩‍💻 Author
+
+Developed and maintained by **Shalini Biswal**
